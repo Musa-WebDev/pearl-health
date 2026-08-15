@@ -1,8 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffaf9;
+  --foreground: #21171c;
+  --surface: #f7efef;
+  --muted-foreground: #6f6268;
+  --border: #e8d7dc;
+  --brand: #7f1d3f;
+  --brand-dark: #631632;
+  --brand-soft: #d8b4c2;
+  --brand-tint: #f7e8ee;
+  --ink-soft: #3a2b31;
+  --silver: #b9adb2;
+  --shadow-soft: 0 18px 60px rgba(33, 23, 28, 0.07);
+  --shadow-lift: 0 28px 80px rgba(33, 23, 28, 0.12);
 }
 
 @theme inline {
@@ -12,15 +23,123 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 132px;
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 249, 0.92), rgba(255, 250, 249, 0.98)),
+    radial-gradient(circle at top left, rgba(127, 29, 63, 0.08), transparent 30%),
+    radial-gradient(circle at top right, rgba(185, 173, 178, 0.14), transparent 28%),
+    var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(127, 29, 63, 0.18);
+  color: var(--foreground);
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+.luxury-panel {
+  border: 1px solid color-mix(in srgb, var(--border) 88%, white);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow-soft);
+}
+
+.fine-link {
+  position: relative;
+}
+
+.fine-link::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.3rem;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 220ms ease;
+}
+
+.fine-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-shell > div {
+    animation: page-enter 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  section,
+  article,
+  form,
+  footer {
+    animation: reveal-up both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 26%;
+  }
+
+  a,
+  button,
+  article,
+  .luxury-panel {
+    transition:
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      color 220ms ease,
+      background-color 220ms ease,
+      opacity 220ms ease,
+      transform 220ms ease;
+  }
+
+  article:hover,
+  .luxury-panel:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

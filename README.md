@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pearl Health Demo Website
 
-## Getting Started
+This repository contains a client demo website for `Pearl's Primary Health Care Clinic`, built with Next.js App Router and Tailwind CSS.
 
-First, run the development server:
+The demo is based on:
+
+- the website proposal for the clinic
+- the company profile and service portfolio
+
+## Included pages
+
+- `Home`
+- `About`
+- `Services`
+- `Patient Experience`
+- `Team`
+- `Contact`
+
+## Demo notes
+
+Some business details were not yet finalised in the supplied documents. The site therefore keeps these as clear placeholders so they can be updated later without changing the layout:
+
+- practitioner details and registration information
+- clinic address
+- phone and WhatsApp numbers
+- operating hours
+- appointment instructions
+
+## Local development
+
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is ready for Vercel deployment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Recommended flow:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push the repository to GitHub.
+2. Import the GitHub repo into Vercel.
+3. Keep the default Next.js build settings.
+4. Add the final clinic domain later if needed.
 
-## Deploy on Vercel
+## Content sources
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The current site content is structured from the supplied proposal and company profile, including:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- clinic positioning
+- mission, vision and values
+- service categories
+- patient experience flow
+- maroon-and-silver visual direction
+
+## Next updates
+
+Before client launch, replace the placeholders with the final confirmed clinic details and add:
+
+- final logo files
+- practitioner profile and headshot
+- working phone and WhatsApp links
+- real map embed
+- confirmed operating hours
